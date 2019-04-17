@@ -4,51 +4,38 @@
 ## Write a short comment describing this function
 
 
-## This function creates a special "matrix" object that can cache its inverse.
+## This functions create a specail "matrix" that can chache its inverse
+## base on sample function makeVector and chacheVector
 
+## Create special "matrix" object
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  inv <- NULL
+  set <- function(y) {
+    x <<- y
+    inv <<- NULL
+  }
+  get <- function() x
+  setInverse <- function(inverse) inv <<- inverse
+  getInverse <- function() inv
+  list(set      = set, 
+       get      = get,
+       setInverse = setInverse,
+       getInverse = getInverse)
 }
-
-
 
 ## Write a short comment describing this function
 
-## This function computes the inverse of the special "matrix" created by 
-## makeCacheMatrix above.
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
-makeCacheMatrix <- function(x = matrix()) {
-    inv <- NULL
-    set <- function(y) {
-        x <<- y
-        inv <<- NULL
-    }
-    get <- function() x
-    setInverse <- function(inverse) inv <<- inverse
-    getInverse <- function() inv
-    list(set = set,
-         get = get,
-         setInverse = setInverse,
-         getInverse = getInverse)
-}
-cacheSolve <- function(x, ...) {(        ## Return a matrix that is the inverse of 'x'(        inv <- x$getInverse()(        if (!is.null(inv)) {(                message("getting cached data")(                return(inv)(        }(        mat <- x$get()(        inv <- solve(mat, ...)(        x$setInverse(inv)(        inv(}
-    
-    
-    cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+casheSolve <- function(x, ...) {
         inv <- x$getInverse()
         if (!is.null(inv)) {
-            message("getting cached data")
-            return(inv)
+                message("getting cached data")
+                return(inv)
         }
         mat <- x$get()
-        inv <- solve(mat, ...)
+        inv <- solv(mat, ...)
         x$setInverse(inv)
         inv
-    }
-    
-    
+}
+
+           
