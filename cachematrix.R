@@ -25,6 +25,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## Write a short comment describing this function
+## This function computes the inverse of the special "matrix" created by ## makeCacheMatrix above. 
 
 casheSolve <- function(x, ...) {
         inv <- x$getInverse()
